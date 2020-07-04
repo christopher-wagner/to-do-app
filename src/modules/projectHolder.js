@@ -1,4 +1,5 @@
 import Project from './project.js'
+import ProjectDOM from './dom/projectDOM.js'
 
 const ProjectHolder = () => {
 
@@ -7,8 +8,10 @@ const ProjectHolder = () => {
     const createProject = () => {
         const projectItem = Project(prompt(), prompt())
         projectHolderList.push(projectItem)
-        projectItem.createToDoItem()
-        projectItem.addTODOItemToDOM()
+        addProjectItemToDOM()
+        //projectItem.createToDoItem()
+        //projectItem.addTODOItemToDOM()
+
     }
 
     const returnProjectHolderItem = () => projectHolderList.map(
@@ -18,22 +21,11 @@ const ProjectHolder = () => {
         projectHolderList.push(projectItem)
     }
 
+
     const addProjectItemToDOM = () => {
-        const container = document.getElementById("container")
-        const DOMCONSOLE = document.createElement('h1')
-        const projectContainer = document.createElement("div")
-        const title = document.createElement('div')
-        const description = document.createElement('div')
-
-        DOMCONSOLE.innerHTML = "Project"
-        title.innerHTML = projectHolderList[0].returnPTitle()
-        description.innerHTML = projectHolderList[0].returnPDesc()
-
-        projectContainer.appendChild(DOMCONSOLE)
-        projectContainer.appendChild(title)
-        projectContainer.appendChild(description)
-
-        container.appendChild(projectContainer)
+        const projectDOM = ProjectDOM()
+        //projectDOM.projectContainer()
+        projectDOM.projectElements(projectHolderList[0].returnPTitle(),projectHolderList[0].returnPDesc())
     }
 
     const callProjectToDoTitles = (projectItem) => {
@@ -45,7 +37,7 @@ const ProjectHolder = () => {
         returnProjectHolderItem,
         addProjectItemToList,
         addProjectItemToDOM,
-        callProjectToDoTitles
+        callProjectToDoTitles,
     }
 }
 

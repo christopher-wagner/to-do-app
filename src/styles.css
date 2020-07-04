@@ -5,3 +5,13 @@
 @tailwind components;
 
 @tailwind utilities;
+
+ #divider {
+    width:1px; 
+    border:1px solid grey;
+    height: 500px;
+} 
+
+.p-container {
+    width:25%
+}
