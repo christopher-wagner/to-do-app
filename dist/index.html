@@ -5,7 +5,13 @@
   </head>
   <body>
     <div id="container" class="flex">
-      <div id="project-container" class="p-container container mx-2 px-4 float-left"></div>
+      <div id="project-container" class="p-container container mx-2 px-4 float-left text-center">
+        <form id="create-project" name="create-project">
+          <input placeholder="Title..." type="text" name="title" id="title">
+          <input placeholder="Description..." type="text" name="desc" id="desc">
+          <button id="submit-project-form" type="submit">Submit Project</button>
+        </form>
+      </div>
       <div id="divider" class=""></div>
       <div id="todo-container" class="container mx-2 px-4 text-center"></div>
     </div>  

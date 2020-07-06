@@ -3,23 +3,34 @@ const ProjectDOM = () => {
     let id = 0
 
 
+    const hideProjectForm = () => {
+        const pform = document.getElementById("create-project")
+        pform.style.visibility = "hidden"
+    }
+
+    const showProjectForm = () => {
+        const pform = document.getElementById("create-project")
+        pform.style.visibility = "visible"
+    }
+
+
     const projectBTN = () => {
         const container = document.getElementById("project-container")
         const projectBTN = document.createElement("button")
         projectBTN.innerHTML = "Add Project"
         projectBTN.id = "project-btn"
         projectBTN.classList.add("bg-white", "hover:bg-gray-100", "text-gray-800",
-        "font-semibold", "py-2", "px-4", "border", 
-        "border-gray-400", "rounded", "shadow","xl:max-w-1x4", "text-center")
+            "font-semibold", "py-2", "px-4", "border",
+            "border-gray-400", "rounded", "shadow", "xl:max-w-1x4")
         container.appendChild(projectBTN)
         projectContainer()
     }
-    
+
     const projectContainer = () => {
         const container = document.getElementById("project-container")
         const pContainer = document.createElement("div")
         pContainer.id = "project-section"
-        pContainer.classList.add("divide-y-2","divide-gray-400")
+        pContainer.classList.add("divide-y-2", "divide-gray-400")
         container.appendChild(pContainer)
     }
 
@@ -51,6 +62,8 @@ const ProjectDOM = () => {
         projectBTN,
         projectContainer,
         projectElements,
+        hideProjectForm,
+        showProjectForm
     }
 }
 

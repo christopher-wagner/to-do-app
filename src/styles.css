@@ -6,12 +6,35 @@
 
 @tailwind utilities;
 
- #divider {
+html, body { 
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    height: 100%;
+}
+
+#project-container, #divider, #todo-container {
+    margin-top: 2%;
+
+}
+
+#container {
+    width: 100%; 
+    height: 100%; 
+}
+
+#divider {
+    position: relative;
     width:1px; 
     border:1px solid grey;
-    height: 500px;
+    height: 96%;
+
 } 
 
 .p-container {
-    width:25%
+    width:40%
+}
+
+#create-project {
+    border: 1px solid black;
 }

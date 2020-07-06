@@ -8,8 +8,8 @@ const TodoDOM = () => {
         todoBTN.innerHTML = "Add New ToDo"
         todoBTN.id = "todo-btn"
         todoBTN.classList.add("bg-white", "hover:bg-gray-100", "text-gray-800",
-        "font-semibold", "py-2", "px-4", "border", 
-        "border-gray-400", "rounded", "shadow")
+            "font-semibold", "py-2", "px-4", "border",
+            "border-gray-400", "rounded", "shadow")
         container.appendChild(todoBTN)
         todoContainer()
     }
@@ -18,7 +18,7 @@ const TodoDOM = () => {
         const container = document.getElementById("todo-container")
         const tdContainer = document.createElement("div")
         tdContainer.id = "td-section"
-        tdContainer.classList.add("divide-y-2","divide-gray-400")
+        tdContainer.classList.add("divide-y-2", "divide-gray-400")
         container.appendChild(tdContainer)
     }
 
@@ -32,7 +32,7 @@ const TodoDOM = () => {
         btn.style.visibility = "visible"
     }
 
-    const addTODOToProjectContainer = (tdTitle,tdDescription,tdDueDate,tdPriority) => {
+    const addTODOToProjectContainer = (tdTitle, tdDescription, tdDueDate, tdPriority) => {
         const container = document.getElementById("td-section")
         const DOMCONSOLE = document.createElement('h1')
         const TODOContainer = document.createElement("div")
@@ -42,7 +42,7 @@ const TodoDOM = () => {
         const priority = document.createElement('div')
 
         TODOContainer.id = "todo"
-        TODOContainer.classList.add("text-center","py-2")
+        TODOContainer.classList.add("text-center", "py-2")
 
         DOMCONSOLE.innerHTML = "TODO Item"
         title.innerHTML = tdTitle
