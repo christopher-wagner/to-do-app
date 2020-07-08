@@ -13,7 +13,15 @@
         </form>
       </div>
       <div id="divider" class=""></div>
-      <div id="todo-container" class="container mx-2 px-4 text-center"></div>
+      <div id="todo-container" class="container mx-2 px-4 text-center">
+        <form id="create-todoitem" name="create-todoitem">
+          <input placeholder="Title..." type="text" name="td-title" id="td-title">
+          <input placeholder="Description..." type="text" name="td-desc" id="td-desc">
+          <input placeholder="Due Date..." type="text" name="td-due-date" id="td-due-date">
+          <input placeholder="Priority..." type="text" name="td-priority" id="td-priority">
+          <button id="submit-todo-form" type="submit">Submit To-Do</button>
+        </form>
+      </div>
     </div>  
     <script src="main.js"></script>
   </body>

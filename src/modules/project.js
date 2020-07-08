@@ -6,25 +6,15 @@ const Project = (pTitle, pDescription) => {
     pDescription = pDescription
     let toDoPList = []
     let pID = 0
-    let tdID = 0
-    var uniqueId = (() => {
-        //var tdID = 0
-
-        return function() {
-            return tdID++
-        }
-    })()
+    //let tdID = 0
 
 
-    const createToDoItem = () => {
-        const todoitem = ToDo(prompt(),prompt() , prompt(), prompt(),tdID)
-        toDoPList.push(todoitem)
-        uniqueId()
-        console.log(todoitem.returnTDID())
 
-
+    const createToDoItem = (title,desc,dueDate,priority,projectID) => {
+        const todoitem = ToDo(title,desc,dueDate,priority,projectID)
+        addToDoItemToList(todoitem)
     }
-    const incrementTDID = () => {tdID = tdID + 1}
+    //const incrementTDID = () => {tdID = tdID + 1}
 
     const returnPTitle = () => pTitle
     const returnPDesc = () => pDescription
@@ -42,14 +32,29 @@ const Project = (pTitle, pDescription) => {
         toDoPList.push(todoitem)
     }
 
-    const addTODOItemToDOM = () => {
-        const todoD = TodoDOM()
-        todoD.addTODOToProjectContainer(toDoPList[0].returnTitle(),
-            toDoPList[0].returnDesc(),
-            toDoPList[0].returnDueDate(),
-            toDoPList[0].returnPriority()
+    const renderTODOListOnDOM = () => {
+        const todoDOM = TodoDOM()
+        let checkDOMfortodoList = document.getElementById("td-section")
+        let child = checkDOMfortodoList.lastElementChild
+        while(child) {
+            checkDOMfortodoList.removeChild(child)
+            child = checkDOMfortodoList.lastElementChild
+        }
+        toDoPList.map(todoItem => todoDOM.addTODOToProjectContainer(todoItem.returnTitle(), 
+        todoItem.returnDesc(),
+        todoItem.returnDueDate(),
+        todoItem.returnPriority())
         )
     }
+
+    // const addTODOItemToDOM = () => {
+    //     const todoD = TodoDOM()
+    //     todoD.addTODOToProjectContainer(toDoPList[0].returnTitle(),
+    //         toDoPList[0].returnDesc(),
+    //         toDoPList[0].returnDueDate(),
+    //         toDoPList[0].returnPriority()
+    //     )
+    //}
 
     const incrementPID = () => {pID++}
 
@@ -62,7 +67,8 @@ const Project = (pTitle, pDescription) => {
         returnPtodoTitle,
         returnPID,
         addToDoItemToList,
-        addTODOItemToDOM,
+        //addTODOItemToDOM,
+        renderTODOListOnDOM,
         incrementPID
     }
 }

@@ -10,15 +10,15 @@ const todoBTN = ToDoDOM()
 const pHolder = ProjectHolder()
 
 const submitProject = (e) => {
-  console.log("dfsdsf")
   const newProjectForm = document.forms["create-project"]
   const pTitle = newProjectForm.elements["title"].value
   const pDesc = newProjectForm.elements["desc"].value
   pHolder.createProject(pTitle,pDesc)
-  pHolder.addProjectItemToDOM()
+  pHolder.renderProjectListOnDOM()
   //pDOM.hideProjectForm()
   //pHolder.addProjectItemToDOM()
   //console.log(pHolder.returnPList())
+  pHolder.returnProjectIndex(pHolder[0])
   newProjectForm.reset()
   e.preventDefault()
   return false
@@ -34,18 +34,30 @@ const hideProjectForm = () => {
   pDOM.hideProjectForm()
 }
 
-const addNewTODO = () => {
-  const todoitem = Project()
-  todoitem.createToDoItem()
-  todoitem.addTODOItemToDOM()
+const submitTODO = (e) => {
+  //const todoitem = Project()
+
+  const newTODOForm = document.forms["create-todoitem"]
+  const tdTitle = newTODOForm.elements["td-title"].value
+  const tdDesc = newTODOForm.elements["td-desc"].value
+  const tdDueDate = newTODOForm.elements["td-due-date"].value
+  const tdPriority = newTODOForm.elements["td-priority"].value
+  
+  //todoitem.createToDoItem(tdTitle,tdDesc,tdDueDate,tdPriority)
+  pHolder.createTODO(tdTitle,tdDesc,tdDueDate,tdPriority)
+  //todoitem.renderTODOListOnDOM()
+  pHolder.renderTODOonDOM()
+  newTODOForm.reset()
+  e.preventDefault()
+  return false
 }
   
 const setUp = () => {
-  //const projectBTNs = ProjectDOM()
   pDOM.projectBTN()
   pDOM.hideProjectForm()
   todoBTN.todoBTN()
   todoBTN.hidetodoBTN()
+  pDOM.projectContainer()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,9 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const projectBTNListener = document.getElementById("project-btn")
   const watchSubmitProject = document.getElementById("submit-project-form")
-  const todoBTNListener = document.getElementById("todo-btn")
+  const watchSubmitTODO = document.getElementById("submit-todo-form")
 
   projectBTNListener.addEventListener("click",showProjectForm)
   watchSubmitProject.addEventListener("click",submitProject)
-  todoBTNListener.addEventListener("click",addNewTODO)
+  watchSubmitTODO.addEventListener("click",submitTODO)
 })

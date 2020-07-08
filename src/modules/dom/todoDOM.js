@@ -32,6 +32,16 @@ const TodoDOM = () => {
         btn.style.visibility = "visible"
     }
 
+    const hideTODOForm = () => {
+        const pform = document.getElementById("create-todoitem")
+        pform.style.visibility = "hidden"
+    }
+
+    const showTODOForm = () => {
+        const pform = document.getElementById("create-todoitem")
+        pform.style.visibility = "visible"
+    }
+
     const addTODOToProjectContainer = (tdTitle, tdDescription, tdDueDate, tdPriority) => {
         const container = document.getElementById("td-section")
         const DOMCONSOLE = document.createElement('h1')
@@ -65,6 +75,8 @@ const TodoDOM = () => {
         hidetodoBTN,
         showtodoBTN,
         addTODOToProjectContainer,
+        hideTODOForm,
+        showTODOForm
 
     }
 }

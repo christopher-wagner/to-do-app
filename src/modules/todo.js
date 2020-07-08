@@ -1,23 +1,22 @@
-const ToDo = (title, description, dueDate, priority, tdID) => {
+const ToDo = (title, description, dueDate, priority,projectID) => {
     title = title
     description = description
     dueDate = dueDate
     priority = priority
-    tdID = tdID
+    projectID = projectID
 
 
     const returnTitle = () => title
     const returnDesc = () => description
     const returnDueDate = () => dueDate
     const returnPriority = () => priority
-    const returnTDID = () => tdID
+    const returnProjectID = () => returnProjectID
 
     const setTitle = (changeTitle) => title = changeTitle 
     const setDesc = (changeDesc) => description = changeDesc 
     const setDueDate = (changeDueDate) => dueDate = changeDueDate 
     const setPriority = (changePriority) => priority = changePriority 
-
-    const incrementTDID = () => {tdID++}
+    const setProjectID = (changeProjectID) => projectID = changeProjectID
 
 
     return {
@@ -25,12 +24,12 @@ const ToDo = (title, description, dueDate, priority, tdID) => {
         returnDesc,
         returnDueDate,
         returnPriority,
-        returnTDID,
+        returnProjectID,
         setTitle,
         setDesc,
         setDueDate,
         setPriority,
-        incrementTDID
+        setProjectID
 
     }
 
